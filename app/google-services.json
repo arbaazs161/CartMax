@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "958513038312",
+    "project_id": "cartmax-666ad",
+    "storage_bucket": "cartmax-666ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958513038312:android:88b1f541dac1014f32da5d",
+        "android_client_info": {
+          "package_name": "com.cartmax.groc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958513038312-p24v9p99fe962gvqvqrstpdjhr9si5l9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0M9C-dsnHypROG_-ptEZGyrEJxD5LVZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958513038312-p24v9p99fe962gvqvqrstpdjhr9si5l9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignIn"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:src="@drawable/name"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/illustration_signin"
+
+        ></ImageView>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contact_signin"
+        android:hint="Contact - 10 digit"
+        android:layout_margin="20dp"
+
+        ></EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signincode"
+        android:layout_margin="20dp"
+        android:hint="Enter OTP"
+        android:visibility="gone"
+        ></EditText>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get OTP"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/sky_btn"
+        android:textStyle="bold"
+        android:id="@+id/signInGetOtp"
+        ></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Verify"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/sky_btn"
+        android:textStyle="bold"
+        android:id="@+id/signInVerify"
+        android:visibility="gone"
+        ></Button>
+
+</LinearLayout>

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +30,7 @@ public class SignIn extends AppCompatActivity {
 
     // variable for FirebaseAuth class
     private FirebaseAuth mAuth;
+    FirebaseFirestore db;
 
     // variable for our text input
     // field for phone and OTP.
@@ -36,6 +41,7 @@ public class SignIn extends AppCompatActivity {
 
     // string for storing our verification ID
     private String verificationId;
+    String contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,8 @@ public class SignIn extends AppCompatActivity {
         // below line is for getting instance
         // of our FirebaseAuth.
         mAuth = FirebaseAuth.getInstance();
+
+        db = FirebaseFirestore.getInstance();
 
         // initializing variables for button and Edittext.
         edtPhone = findViewById(R.id.contact_signin);
@@ -66,6 +74,11 @@ public class SignIn extends AppCompatActivity {
                     // if the text field is not empty we are calling our
                     // send OTP method for getting OTP from Firebase.
                     String phone = "+91" + edtPhone.getText().toString();
+                    contact = edtPhone.getText().toString();
+                    edtOTP.setVisibility(View.VISIBLE);
+                    verifyOTPBtn.setVisibility(View.VISIBLE);
+                    generateOTPBtn.setVisibility(View.GONE);
+                    edtPhone.setVisibility(View.GONE);
                     sendVerificationCode(phone);
                 }
             }
@@ -100,9 +113,35 @@ public class SignIn extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
-                            Intent i = new Intent(SignIn.this, MainActivity.class);
-                            startActivity(i);
-                            finish();
+
+                            db.collection("users")
+                                    .whereEqualTo("Contact", contact)
+                                    .get()
+                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            if(task.isSuccessful()){
+                                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                                    if(document.exists()){
+                                                        Intent i = new Intent(SignIn.this, MainActivity.class);
+                                                        startActivity(i);
+                                                    }
+                                                    else{
+                                                        Intent i = new Intent(SignIn.this, Register.class);
+                                                        i.putExtra("contact", contact);
+                                                        startActivity(i);
+                                                    }
+                                                }
+                                            } else {
+                                                Log.d("DOCError", "Error getting documents: ", task.getException());
+                                            }
+                                        }
+                                    });
+
+                            //
+                            //
+
+                            //finish();
                         } else {
                             // if the code is not correct then we are
                             // displaying an error message to the user.

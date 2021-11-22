@@ -104,6 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LOGIN"
+            android:id="@+id/btnTextLogin"
             android:textColor="@color/sky_btn"
             android:textStyle="bold"
             android:fontFamily="@font/redhattextbold"

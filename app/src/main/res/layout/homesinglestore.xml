@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    >
+
+    <ImageView
+        android:id="@+id/coverStoreHome"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/illustration_home"
+
+        ></ImageView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        >
+
+        <TextView
+            android:id="@+id/nameStoreHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of Store"
+            android:textFontWeight="900"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:letterSpacing="0.3"
+            >
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/typeStoreHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type of Store/ Selling"
+            android:letterSpacing="0.3"
+            >
+
+        </TextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="#c0c0c0"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="5"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:layout_weight="4"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src=""
+                    android:layout_gravity="left"
+                    ></ImageView>
+                <TextView
+                    android:id="@+id/ratingStoreHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3.5"></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 Minutes"></TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

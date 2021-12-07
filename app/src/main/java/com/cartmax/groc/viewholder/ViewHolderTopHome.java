@@ -6,11 +6,23 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cartmax.groc.R;
+
 public class ViewHolderTopHome extends RecyclerView.ViewHolder{
 
-    ImageView img;
+    RecyclerView rcView;
+
+    public RecyclerView getRcView() {
+        return rcView;
+    }
+
+    public void setRcView(RecyclerView rcView) {
+        this.rcView = rcView;
+    }
 
     public ViewHolderTopHome(@NonNull View itemView) {
         super(itemView);
+
+        rcView = itemView.findViewById(R.id.recyclerViewChild);
     }
 }

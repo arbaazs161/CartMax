@@ -75,11 +75,43 @@ public class SignIn extends AppCompatActivity {
                     // send OTP method for getting OTP from Firebase.
                     String phone = "+91" + edtPhone.getText().toString();
                     contact = edtPhone.getText().toString();
-                    edtOTP.setVisibility(View.VISIBLE);
+                    /*edtOTP.setVisibility(View.VISIBLE);
                     verifyOTPBtn.setVisibility(View.VISIBLE);
                     generateOTPBtn.setVisibility(View.GONE);
                     edtPhone.setVisibility(View.GONE);
-                    sendVerificationCode(phone);
+                    sendVerificationCode(phone);*/
+
+                    db.collection("users")
+                            .whereEqualTo("Contact", contact)
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if(task.isSuccessful()){
+
+                                            if(task.getResult().getDocuments().size() > 0){
+                                                Intent i = new Intent(SignIn.this, Home.class);
+                                                startActivity(i);
+                                            }
+                                            else{
+                                                Intent i = new Intent(SignIn.this, Register.class);
+                                                i.putExtra("contact", contact);
+                                                startActivity(i);
+                                            }
+
+                                    } else {
+                                        Intent i = new Intent(SignIn.this, Register.class);
+                                        i.putExtra("contact", contact);
+                                        startActivity(i);
+                                        Log.d("DOCError", "Error getting documents: ", task.getException());
+                                    }
+                                }
+                            });
+
+                    //
+                    //
+
+                    //finish();
                 }
             }
         });
@@ -114,34 +146,7 @@ public class SignIn extends AppCompatActivity {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
 
-                            db.collection("users")
-                                    .whereEqualTo("Contact", contact)
-                                    .get()
-                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                            if(task.isSuccessful()){
-                                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                                    if(document.exists()){
-                                                        Intent i = new Intent(SignIn.this, MainActivity.class);
-                                                        startActivity(i);
-                                                    }
-                                                    else{
-                                                        Intent i = new Intent(SignIn.this, Register.class);
-                                                        i.putExtra("contact", contact);
-                                                        startActivity(i);
-                                                    }
-                                                }
-                                            } else {
-                                                Log.d("DOCError", "Error getting documents: ", task.getException());
-                                            }
-                                        }
-                                    });
 
-                            //
-                            //
-
-                            //finish();
                         } else {
                             // if the code is not correct then we are
                             // displaying an error message to the user.

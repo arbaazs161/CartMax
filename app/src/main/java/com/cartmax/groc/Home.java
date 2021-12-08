@@ -47,7 +47,7 @@ public class Home extends AppCompatActivity {
 
         homeList.add(imgList);
 
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < 10; i++){
             StoreModel sm = new StoreModel("Dairy", "Vadodara", "A1234", "This is store cover "+i, "54.598693,-5.925955", new ArrayList<String>(Arrays.asList("Hello", "I am Type")));
             homeList.add(sm);
         }

@@ -12,9 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CartMax">
         <activity
-            android:name=".HomeActivity"
-            android:theme="@style/AppTheme"
+            android:name=".RegisterStore"
             android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Register"
             android:exported="false" />
@@ -23,8 +26,8 @@
             android:exported="true" />
         <activity
             android:name=".Home"
-            android:theme="@style/AppTheme"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

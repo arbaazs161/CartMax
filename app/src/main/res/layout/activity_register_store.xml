@@ -5,20 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    android:gravity="center"
+
     android:padding="15dp"
-    tools:context=".Register">
+    tools:context=".RegisterStore">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:src="@drawable/name"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="20dp"
-        >
-
-    </ImageView>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -32,18 +22,38 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etRegisterFName"
+        android:id="@+id/etRegisterStoreName"
         android:letterSpacing="0.4"
         android:layout_margin="10dp"
-        android:hint="First Name"></EditText>
+        android:hint="Store Name"></EditText>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etRegisterLName"
+        android:id="@+id/etRegisterStoreAddress"
         android:letterSpacing="0.4"
         android:layout_margin="10dp"
-        android:hint="Last Name"></EditText>
+        android:hint="Full Address"></EditText>
+
+    <MultiAutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Types of Products"
+        android:id="@+id/etRegisterStoreType"
+        android:letterSpacing="0.4"
+        android:layout_margin="10dp"
+        ></MultiAutoCompleteTextView>
+
+    <Button
+        android:hint="Upload Cover"
+        android:textSize="10dp"
+        android:id="@+id/btnSelectImage"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/imgupload"
+        android:backgroundTint="@color/background"
+        ></Button>
 
     <Button
         android:layout_width="match_parent"
@@ -53,6 +63,8 @@
         android:letterSpacing="0.2"
         android:textStyle="bold"
         android:layout_margin="10dp"
-        android:id="@+id/registerBtn"></Button>
+        android:id="@+id/registerBtnStore"></Button>
+
+
 
 </LinearLayout>

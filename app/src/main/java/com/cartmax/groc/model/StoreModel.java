@@ -21,6 +21,13 @@ public class StoreModel {
         Type = type;
     }
 
+    public StoreModel(String name, String address, String cover, ArrayList<String> type) {
+        Name = name;
+        Address = address;
+        Cover = cover;
+        Type = type;
+    }
+
     public StoreModel() {
     }
 

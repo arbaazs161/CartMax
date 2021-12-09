@@ -13,7 +13,8 @@ import android.widget.Toast;
 
 import com.cartmax.groc.adapter.HomeAdapter;
 import com.cartmax.groc.model.StoreModel;
-import com.google.type.LatLng;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.firestore.GeoPoint;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +49,7 @@ public class Home extends AppCompatActivity {
         homeList.add(imgList);
 
         for(int i = 0; i < 10; i++){
-            StoreModel sm = new StoreModel("Dairy", "Vadodara", "A1234", "This is store cover "+i, "54.598693,-5.925955", new ArrayList<String>(Arrays.asList("Hello", "I am Type")));
+            StoreModel sm = new StoreModel("Dairy", "Vadodara", "A1234", "This is store cover "+i, new GeoPoint(10, 10), new ArrayList<String>(Arrays.asList("Hello", "I am Type")));
             homeList.add(sm);
         }
 
@@ -78,6 +79,8 @@ public class Home extends AppCompatActivity {
             case R.id.copy:
                 Toast.makeText(this, "Copy Clicked", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.setLocation:
+                Toast.makeText(this, "Set Location Clicked", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

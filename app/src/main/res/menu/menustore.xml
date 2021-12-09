@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Orders"
+        android:id="@+id/orderStore"
+        android:iconTint="@color/bg_home_child"
+        android:orderInCategory="100"
+        android:icon="@drawable/ordericon"
+        app:showAsAction="always"></item>
+    <!--android:icon="@drawable/search_icon"/>-->
+
+    <!-- action button for copy -->
+    <item android:title="Store"
+        android:id="@+id/storeDetails"
+        android:icon="@drawable/storeicon"
+        android:iconTint="@color/bg_home_child"
+        android:orderInCategory="100"
+        app:showAsAction="always"></item>
+
+    <item android:title="Add"
+        android:id="@+id/addItem"
+        android:icon="@drawable/additem"
+        app:showAsAction="always"
+        android:orderInCategory="100"
+        android:iconTint="@color/bg_home_child"
+        ></item>
+
+</menu>

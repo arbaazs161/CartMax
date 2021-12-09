@@ -4,6 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:title="search"
+        android:id="@+id/setLocation"
+        android:iconTint="@color/bg_home_child"
+        android:orderInCategory="100"
+        android:icon="@drawable/locationhomeicon"
+        app:showAsAction="always"></item>
+
+    <item android:title="search"
         android:id="@+id/search"
         android:iconTint="@color/bg_home_child"
         android:orderInCategory="100"

@@ -5,17 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+    android:weightSum="11"
     android:padding="15dp"
     tools:context=".RegisterStore">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:src="@drawable/illustration_signin"
-
-        ></ImageView>
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mapRegisterStore"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_weight="5"
+        map:mapType="normal"
+        tools:context=".MapStartedActivity"/>
 
 
 
@@ -23,7 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etRegisterStoreName"
-        android:letterSpacing="0.4"
+        android:letterSpacing="0.2"
+        android:layout_weight="1"
         android:layout_margin="10dp"
         android:hint="Store Name"></EditText>
 
@@ -31,7 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etRegisterStoreAddress"
-        android:letterSpacing="0.4"
+        android:letterSpacing="0.2"
+        android:layout_weight="1"
         android:layout_margin="10dp"
         android:hint="Full Address"></EditText>
 
@@ -40,19 +46,24 @@
         android:layout_height="wrap_content"
         android:hint="Types of Products"
         android:id="@+id/etRegisterStoreType"
-        android:letterSpacing="0.4"
+        android:layout_weight="1"
+        android:letterSpacing="0.2"
         android:layout_margin="10dp"
         ></MultiAutoCompleteTextView>
 
     <Button
+        android:elevation="0dp"
         android:hint="Upload Cover"
         android:textSize="10dp"
+        android:layout_weight="2"
         android:id="@+id/btnSelectImage"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
+        android:letterSpacing="0.2"
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/imgupload"
         android:backgroundTint="@color/background"
+        android:stateListAnimator="@null"
         ></Button>
 
     <Button
@@ -60,8 +71,9 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:backgroundTint="@color/sky_btn"
-        android:letterSpacing="0.2"
+        android:letterSpacing="0.3"
         android:textStyle="bold"
+        android:layout_weight="1"
         android:layout_margin="10dp"
         android:id="@+id/registerBtnStore"></Button>
 

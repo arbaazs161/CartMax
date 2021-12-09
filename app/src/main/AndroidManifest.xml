@@ -3,6 +3,8 @@
     package="com.cartmax.groc">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CartMax">
+        <activity
+            android:name=".AddItem"
+            android:exported="false" />
+        <activity
+            android:name=".HomeStore"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBQxJn8pP_n1ZqESP-mPTkapBkTh8dvFzs" />
+
         <activity
             android:name=".RegisterStore"
             android:exported="false" />

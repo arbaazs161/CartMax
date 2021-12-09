@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    tools:context=".AddItem">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/createItemName"
+        android:letterSpacing="0.2"
+        android:hint="Item Name"
+        android:layout_margin="10dp"
+        ></EditText>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/createItemCategory"
+
+        android:layout_margin="10dp"
+        ></Spinner>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/createItemPrice"
+        android:hint="Item Price"
+        android:layout_margin="10dp"
+        android:letterSpacing="0.2"
+        ></EditText>
+
+    <Button
+        android:hint="Upload Item Image"
+        android:textSize="10dp"
+        android:id="@+id/createItemImage"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/imgupload"
+        android:backgroundTint="@color/background"
+        android:stateListAnimator="@null"
+        ></Button>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/sky_btn"
+        android:text="Add Item"
+        android:textStyle="bold"
+        android:id="@+id/createItemBtn"
+        android:letterSpacing="0.3"
+        ></Button>
+
+</LinearLayout>

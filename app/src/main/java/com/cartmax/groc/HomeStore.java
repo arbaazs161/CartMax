@@ -3,18 +3,36 @@ package com.cartmax.groc;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Adapter;
 import android.widget.Toast;
 
+import com.cartmax.groc.model.ProductModel;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeStore extends AppCompatActivity {
+
+    RecyclerView recView;
+    ArrayList<ProductModel> products;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_store);
+
+        db = FirebaseFirestore.getInstance();
 
         ActionBar actionBar = getSupportActionBar();
 
@@ -22,6 +40,37 @@ public class HomeStore extends AppCompatActivity {
 
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
+
+        recView = findViewById(R.id.recHomeStore);
+
+        products = new ArrayList<ProductModel>();
+
+        db.collection("Product")
+                .whereEqualTo("storeID", "08OGJIaivFqnCgXajVnu")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+                List<DocumentSnapshot> documents = queryDocumentSnapshots.getDocuments();
+                if(!queryDocumentSnapshots.isEmpty()){
+                    for(DocumentSnapshot document : documents){
+                        ProductModel pm = document.toObject(ProductModel.class);
+                        products.add(pm);
+                    }
+
+                    //Adapter Updation Here
+                }else{
+                    Toast.makeText(HomeStore.this, "No Data Found", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(HomeStore.this, "Please Try again later", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

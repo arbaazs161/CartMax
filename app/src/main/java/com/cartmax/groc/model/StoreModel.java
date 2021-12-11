@@ -13,22 +13,37 @@ public class StoreModel {
     String Location;
     ArrayList<String> Type;
     GeoPoint location;
+    String Contact;
 
-    public StoreModel(String name, String address, String id, String cover, GeoPoint location, ArrayList<String> type) {
+    public void setLocation(String location) {
+        Location = location;
+    }
+
+    public String getContact() {
+        return Contact;
+    }
+
+    public void setContact(String contact) {
+        Contact = contact;
+    }
+
+    public StoreModel(String name, String address, String id, String cover, GeoPoint location, ArrayList<String> type, String Contact) {
         Name = name;
         Address = address;
         Id = id;
         Cover = cover;
-        location = location;
+        this.location = location;
         Type = type;
+        this.Contact = Contact;
     }
 
-    public StoreModel(String name, String address, String cover, ArrayList<String> type, GeoPoint location) {
+    public StoreModel(String name, String address, String cover, ArrayList<String> type, GeoPoint location, String Contact) {
         Name = name;
         Address = address;
         Cover = cover;
         Type = type;
-        location = location;
+        this.location = location;
+        this.Contact = Contact;
     }
 
     public StoreModel() {

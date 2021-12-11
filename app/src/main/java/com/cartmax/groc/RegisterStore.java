@@ -66,13 +66,13 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
     GoogleMap gMap;
 
     MultiAutoCompleteTextView etType;
-    EditText etName, etAddress;
+    EditText etName, etAddress, etContact;
     String referenceUrl;
     String ID;
     boolean isSuccessRegistered;
 
     ArrayList<String> typesArray;
-    String Name, Address;
+    String Name, Address, Contact;
 
     Button btnSelectImage, btnRegisterStore;
 
@@ -112,6 +112,7 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
 
         etType = findViewById(R.id.etRegisterStoreType);
         etName = findViewById(R.id.etRegisterStoreName);
+        etContact = findViewById(R.id.etRegisterStoreContact);
         etAddress = findViewById(R.id.etRegisterStoreAddress);
         btnSelectImage = findViewById(R.id.btnSelectImage);
         btnRegisterStore = findViewById(R.id.registerBtnStore);
@@ -133,8 +134,9 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
                 typesArray.addAll(typesList);
                 Name = etName.getText().toString();
                 Address = etAddress.getText().toString();
+                Contact = etContact.getText().toString();
 
-                boolean res = registerStore(Name, typesArray, Address);
+                boolean res = registerStore(Name, typesArray, Address, Contact);
                 if(res) Log.d("Succeess Registering", "Hurray");
             }
         });
@@ -252,7 +254,7 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
         }
     }
 
-    private boolean registerStore(String name, ArrayList<String> type, String Address){
+    private boolean registerStore(String name, ArrayList<String> type, String Address, String Contact){
         isSuccessRegistered = false;
 
 
@@ -261,7 +263,7 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
         GeoPoint geoPoint = new GeoPoint(latitude, longitude);
 
         if(urlRef != null){
-            StoreModel sm = new StoreModel(name, Address, urlRef, type, geoPoint);
+            StoreModel sm = new StoreModel(name, Address, urlRef, type, geoPoint, Contact);
             Toast.makeText(RegisterStore.this, "LatLng : "+geoPoint, Toast.LENGTH_SHORT).show();
             CollectionReference addStore = db.collection("stores");
 

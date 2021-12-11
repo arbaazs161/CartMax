@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="11"
+    android:weightSum="12"
     android:padding="15dp"
     tools:context=".RegisterStore">
 
@@ -16,7 +16,7 @@
         android:id="@+id/mapRegisterStore"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="320dp"
         android:layout_weight="5"
         map:mapType="normal"
         tools:context=".MapStartedActivity"/>
@@ -31,6 +31,15 @@
         android:layout_weight="1"
         android:layout_margin="10dp"
         android:hint="Store Name"></EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etRegisterStoreContact"
+        android:letterSpacing="0.2"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:hint="Contact"></EditText>
 
     <EditText
         android:layout_width="match_parent"

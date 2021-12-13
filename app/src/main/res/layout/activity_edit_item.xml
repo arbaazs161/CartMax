@@ -6,40 +6,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="10dp"
-    tools:context=".AddItem">
+    tools:context=".EditItem">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Item"
+        android:text="Edit Item"
         android:textSize="30dp"
         android:textStyle="bold"
         android:letterSpacing="0.2"
         android:padding="30dp"
         ></TextView>
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/locationhomeicon"
+        android:layout_margin="10dp"
+        android:id="@+id/editItemImage"
+        ></ImageView>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/createItemName"
+        android:id="@+id/editItemName"
         android:letterSpacing="0.2"
         android:hint="Item Name"
         android:layout_margin="10dp"
         ></EditText>
 
-    <Spinner
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/createItemCategory"
-        android:elevation="10dp"
-        android:layout_margin="10dp"
-        ></Spinner>
+        android:id="@+id/editItemCategory"
+        android:text="Item Category"
+        android:textSize="20dp"
+        android:layout_margin="12dp"
+        android:letterSpacing="0.2"
+        android:layout_gravity="start"
+        ></TextView>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/createItemPrice"
+        android:id="@+id/editItemPrice"
         android:hint="Item Price"
         android:layout_margin="10dp"
         android:letterSpacing="0.2"
@@ -51,13 +61,13 @@
         android:letterSpacing="0.2"
         android:hint="Item Stock"
         android:layout_margin="10dp"
-        android:id="@+id/createItemStock"
+        android:id="@+id/editItemStock"
         ></EditText>
 
     <Button
         android:hint="Upload Item Image"
         android:textSize="10dp"
-        android:id="@+id/createItemImage"
+        android:id="@+id/editItemImageBtn"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,10 +82,22 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:backgroundTint="@color/sky_btn"
-        android:text="Add Item"
+        android:text="UPDATE"
         android:textStyle="bold"
-        android:id="@+id/createItemBtn"
+        android:id="@+id/editItemBtn"
         android:letterSpacing="0.3"
+        ></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/background"
+        android:drawableTop="@drawable/deleteicon"
+        android:textStyle="bold"
+        android:id="@+id/deleteItemBtn"
+        android:letterSpacing="0.3"
+        android:stateListAnimator="@null"
         ></Button>
 
 </LinearLayout>

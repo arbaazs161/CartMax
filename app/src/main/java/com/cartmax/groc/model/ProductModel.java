@@ -1,25 +1,47 @@
 package com.cartmax.groc.model;
 
 public class ProductModel {
-    String Id, Name, Category, StoreID;
+    String Id, Name, Category, StoreID, image;
     double Price;
 
-    public ProductModel(String name, String category, String storeID, double price) {
+    public int getStock() {
+        return Stock;
+    }
+
+    public void setStock(int stock) {
+        Stock = stock;
+    }
+
+    int Stock;
+
+    public ProductModel(String name, String category, String storeID, double price, int Stock, String image) {
         Name = name;
         Category = category;
         StoreID = storeID;
         Price = price;
+        this.Stock = Stock;
+        this.image = image;
     }
 
     public ProductModel() {
     }
 
-    public ProductModel(String id, String name, String category, String storeID, double price) {
+    public ProductModel(String id, String name, String category, String storeID, double price, int Stock, String imageURL) {
         Id = id;
         Name = name;
         Category = category;
         StoreID = storeID;
         Price = price;
+        this.Stock = Stock;
+        this.image = imageURL;
+    }
+
+    public String getimage() {
+        return image;
+    }
+
+    public void setimage(String imageURL) {
+        this.image = imageURL;
     }
 
     public String getId() {

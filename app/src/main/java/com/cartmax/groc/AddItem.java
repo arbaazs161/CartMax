@@ -106,7 +106,8 @@ public class AddItem extends AppCompatActivity {
                 String itemCategory = spinnerItemCategory.getSelectedItem().toString();
                 String StoreId = "08OGJIaivFqnCgXajVnu";
 
-                ProductModel pm = new ProductModel(itemName, itemCategory, StoreId, itemPrice);
+                ProductModel pm = new ProductModel(itemName, itemCategory, StoreId, itemPrice, 100,
+                        "https://firebasestorage.googleapis.com/v0/b/cartmax-666ad.appspot.com/o/StoreCover%2Fillustration_home.png?alt=media&token=54a00e85-48ef-4d41-9c50-27db3a6e6439");
 
                 db.collection("Product").add(pm).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override

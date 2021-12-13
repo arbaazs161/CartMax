@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CartMax">
         <activity
+            android:name=".EditItem"
+            android:exported="false" />
+        <activity
             android:name=".AddItem"
             android:exported="false" />
         <activity

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         tvBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, AddItem.class));
+                startActivity(new Intent(MainActivity.this, HomeStore.class));
             }
         });
     }

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:weightSum="3"
+    android:layout_margin="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="50dp"
+        >
+        <ImageView
+            android:id="@+id/coverProductStore"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/illustration_home"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            ></ImageView>
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:layout_weight="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        >
+
+        <TextView
+            android:id="@+id/nameProductStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of Store"
+            android:textFontWeight="900"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:letterSpacing="0.3"
+            >
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.3"
+                android:text="@string/Rs"
+                >
+
+            </TextView>
+            <TextView
+                android:id="@+id/priceHomeStore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type of Store/ Selling"
+                android:letterSpacing="0.3"
+                >
+
+            </TextView>
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="#c0c0c0"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="5"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                >
+
+                <!--<ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/illustration_home"
+                    android:layout_gravity="left"
+                    ></ImageView>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.3"
+                    android:text="Stock : "></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/stockProductStore"
+                    android:layout_height="wrap_content"
+                    android:text="20"></TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -3,14 +3,17 @@ package com.cartmax.groc;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Adapter;
 import android.widget.Toast;
 
+import com.cartmax.groc.adapter.ProductStoreAdapter;
 import com.cartmax.groc.model.ProductModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -43,7 +46,12 @@ public class HomeStore extends AppCompatActivity {
 
         recView = findViewById(R.id.recHomeStore);
 
+
+
         products = new ArrayList<ProductModel>();
+        ProductStoreAdapter adapter = new ProductStoreAdapter(products);
+        recView.setLayoutManager(new LinearLayoutManager(this));
+        recView.setAdapter(adapter);
 
         db.collection("Product")
                 .whereEqualTo("storeID", "08OGJIaivFqnCgXajVnu")
@@ -56,10 +64,15 @@ public class HomeStore extends AppCompatActivity {
                 if(!queryDocumentSnapshots.isEmpty()){
                     for(DocumentSnapshot document : documents){
                         ProductModel pm = document.toObject(ProductModel.class);
+                        String id = document.getId();
+                        Log.d("Document ID", id);
+                        pm.setId(id);
                         products.add(pm);
                     }
 
                     //Adapter Updation Here
+                    Log.d("ArrayList Items", products.toString());
+                    adapter.notifyDataSetChanged();
                 }else{
                     Toast.makeText(HomeStore.this, "No Data Found", Toast.LENGTH_SHORT).show();
                 }

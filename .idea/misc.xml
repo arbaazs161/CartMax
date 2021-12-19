@@ -13,12 +13,15 @@
         <entry key="app/src/main/res/layout/activity_home2.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/layout/activity_home_store.xml" value="0.1765625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_products.xml" value="0.175" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register_store.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_set_location.xml" value="0.175" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.18020833333333333" />
         <entry key="app/src/main/res/layout/childrecyclerhome.xml" value="0.20052083333333334" />
         <entry key="app/src/main/res/layout/homechildsingleimage.xml" value="0.20052083333333334" />
-        <entry key="app/src/main/res/layout/homesinglestore.xml" value="0.15013050880734924" />
+        <entry key="app/src/main/res/layout/homesingleproduct.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/homesinglestore.xml" value="0.25" />
         <entry key="app/src/main/res/layout/singleproductstore.xml" value="0.375" />
         <entry key="app/src/main/res/menu/home.xml" value="0.165" />
         <entry key="app/src/main/res/menu/menustore.xml" value="0.1765625" />

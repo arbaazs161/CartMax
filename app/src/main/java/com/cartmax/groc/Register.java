@@ -3,6 +3,7 @@ package com.cartmax.groc;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,6 +26,9 @@ public class Register extends AppCompatActivity {
     EditText etFname, etLname;
     Button btnReg;
     FirebaseFirestore fb;
+
+    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,14 @@ public class Register extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 Id = documentReference.getId();
+
+                editor.putString("userID", Id);
+                editor.apply();
+                editor.commit();
+
+                Intent i = new Intent(Register.this, Home.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

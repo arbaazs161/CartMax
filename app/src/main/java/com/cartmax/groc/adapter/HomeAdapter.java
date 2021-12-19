@@ -1,6 +1,8 @@
 package com.cartmax.groc.adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.cartmax.groc.Products;
 import com.cartmax.groc.R;
+import com.cartmax.groc.SetLocation;
 import com.cartmax.groc.model.StoreModel;
 import com.cartmax.groc.viewholder.ViewHolderItemHome;
 import com.cartmax.groc.viewholder.ViewHolderTopHome;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
@@ -77,10 +83,25 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     void configureViewHolderItem(ViewHolderItemHome vh, int pos){
         StoreModel sm = (StoreModel) items.get(pos);
         if(sm != null){
+            String url = sm.getCover();
             vh.getTvName().setText(sm.getName());
             vh.getTvType().setText(sm.getType().toString());
             vh.getTvRating().setText(sm.getAddress());
+            Log.d("Name", sm.getName());
+            Glide.with(vh.getCoverStore().getContext())
+                    .load(url)
+                    .error(R.drawable.illustration_home)
+                    .into(vh.getCoverStore());
             //vh.getTvName().setText(sm.getName());
+
+            vh.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(vh.itemView.getContext(), Products.class);
+                    i.putExtra("storeID", sm.getId());
+                    vh.itemView.getContext().startActivity(i);
+                }
+            });
         }
     }
 

@@ -10,6 +10,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -59,6 +60,9 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class RegisterStore extends AppCompatActivity implements OnMapReadyCallback {
 
+    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+
     FusedLocationProviderClient mFusedLocationClient;
     int PERMISSION_ID = 44;
     LatLng latLng;
@@ -66,7 +70,7 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
     GoogleMap gMap;
 
     MultiAutoCompleteTextView etType;
-    EditText etName, etAddress, etContact;
+    EditText etName, etAddress, etContact, etPinCode;
     String referenceUrl;
     String ID;
     boolean isSuccessRegistered;
@@ -114,6 +118,7 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
         etName = findViewById(R.id.etRegisterStoreName);
         etContact = findViewById(R.id.etRegisterStoreContact);
         etAddress = findViewById(R.id.etRegisterStoreAddress);
+        etPinCode = findViewById(R.id.etRegisterStorePincode);
         btnSelectImage = findViewById(R.id.btnSelectImage);
         btnRegisterStore = findViewById(R.id.registerBtnStore);
         typesArray = new ArrayList<>();
@@ -135,8 +140,9 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
                 Name = etName.getText().toString();
                 Address = etAddress.getText().toString();
                 Contact = etContact.getText().toString();
+                Long PinCode = Long.parseLong(etPinCode.getText().toString());
 
-                boolean res = registerStore(Name, typesArray, Address, Contact);
+                boolean res = registerStore(Name, typesArray, Address, Contact, PinCode);
                 if(res) Log.d("Succeess Registering", "Hurray");
             }
         });
@@ -254,16 +260,17 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
         }
     }
 
-    private boolean registerStore(String name, ArrayList<String> type, String Address, String Contact){
+    private boolean registerStore(String name, ArrayList<String> type, String Address, String Contact, long pincode){
         isSuccessRegistered = false;
 
+        //long pincode = 390030;
 
         String urlRef = UploadImage();
 
         GeoPoint geoPoint = new GeoPoint(latitude, longitude);
 
         if(urlRef != null){
-            StoreModel sm = new StoreModel(name, Address, urlRef, type, geoPoint, Contact);
+            StoreModel sm = new StoreModel(name, Address, urlRef, type, geoPoint, Contact, pincode);
             Toast.makeText(RegisterStore.this, "LatLng : "+geoPoint, Toast.LENGTH_SHORT).show();
             CollectionReference addStore = db.collection("stores");
 
@@ -272,6 +279,12 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
                 public void onSuccess(DocumentReference documentReference) {
                     ID = documentReference.getId();
                     isSuccessRegistered = true;
+                    editor.putString("storeID", ID);
+                    editor.apply();
+                    editor.commit();
+                    Intent i = new Intent(RegisterStore.this, HomeStore.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

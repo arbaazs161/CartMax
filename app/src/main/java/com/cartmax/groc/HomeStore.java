@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -30,12 +31,16 @@ public class HomeStore extends AppCompatActivity {
     ArrayList<ProductModel> products;
     FirebaseFirestore db;
 
+    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_store);
 
         db = FirebaseFirestore.getInstance();
+        String ID = sharedPreferences.getString("storeID", "");
 
         ActionBar actionBar = getSupportActionBar();
 
@@ -54,7 +59,7 @@ public class HomeStore extends AppCompatActivity {
         recView.setAdapter(adapter);
 
         db.collection("Product")
-                .whereEqualTo("storeID", "08OGJIaivFqnCgXajVnu")
+                .whereEqualTo("storeID", ID)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override

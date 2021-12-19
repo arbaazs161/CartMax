@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="10dp"
+    tools:context=".SetLocation">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.2"
+        android:hint="Address Line 1"
+        android:id="@+id/addressLine1"
+        android:layout_margin="10dp"
+        ></EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.2"
+        android:hint="City"
+        android:id="@+id/addressCity"
+        android:layout_margin="10dp"
+        ></EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.2"
+        android:hint="Pin Code"
+        android:layout_margin="10dp"
+        android:id="@+id/addressPincode"
+        ></EditText>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Location"
+        android:backgroundTint="@color/sky_btn"
+        android:letterSpacing="0.2"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:id="@+id/btnSetLocation"
+        ></Button>
+
+
+</LinearLayout>

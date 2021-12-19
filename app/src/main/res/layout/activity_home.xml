@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".Home">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -13,5 +14,33 @@
     android:id="@+id/recHome"
 
     ></androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/layoutSetLocation"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/locationhomeicon"
+            ></ImageView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/sky_btn"
+            android:textStyle="bold"
+            android:letterSpacing="0.3"
+            android:id="@+id/btnGoToSetLocation"
+            android:text="Set Location"
+            android:textColor="@color/background"
+            android:layout_margin="10dp"
+            ></Button>
+    </LinearLayout>
+
 
 </LinearLayout>

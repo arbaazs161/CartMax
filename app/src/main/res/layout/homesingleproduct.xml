@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/productImageHome"
+        android:src="@drawable/ordericon"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        ></ImageView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/productNameHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:letterSpacing="0.2"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/productCategoryHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:letterSpacing="0.2"
+            android:text="Category"
+            android:textColor="@color/quantum_grey"
+            android:textSize="18dp"></TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.3"
+                android:text="@string/Rs"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/productPriceHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:letterSpacing="0.2"
+                android:text="Price"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/sky_btn"
+        android:text="ADD"
+        android:letterSpacing="0.2"
+        android:id="@+id/addProduct"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+
+        android:layout_marginLeft="20dp"
+        ></Button>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/viewQuant"
+        android:visibility="gone"
+        >
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:text="-"
+            android:textStyle="bold"
+            android:id="@+id/btnDecQuant"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:backgroundTint="@color/sky_btn"
+            ></Button>
+
+        <EditText
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:text="1"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:id="@+id/etQuantityProduct"
+            ></EditText>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:text="+"
+            android:textStyle="bold"
+            android:id="@+id/btnIncQuant"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:backgroundTint="@color/sky_btn"
+            ></Button>
+
+    </LinearLayout>
+
+</LinearLayout>

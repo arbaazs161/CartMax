@@ -18,7 +18,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.cartmax.groc.Products;
 import com.cartmax.groc.R;
+import com.cartmax.groc.model.CartModel;
 import com.cartmax.groc.model.ProductModel;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -42,8 +45,6 @@ public class ProductHomeAdapter extends RecyclerView.Adapter<ProductHomeAdapter.
         userID = sharedPreferences.getString("userID", "");
         db = FirebaseFirestore.getInstance();
     }
-
-
 
     @NonNull
     @Override
@@ -92,6 +93,7 @@ public class ProductHomeAdapter extends RecyclerView.Adapter<ProductHomeAdapter.
                 else{
                     double updatedPrice = price * (quant + 1);
                     updateCart(cartId, quant+1, updatedPrice);
+                    holder.etQuant.setText(String.valueOf(quant + 1));
                 }
             }
         });
@@ -105,11 +107,12 @@ public class ProductHomeAdapter extends RecyclerView.Adapter<ProductHomeAdapter.
                     //Toast.makeText(ctx, "Limit Reached", Toast.LENGTH_SHORT).show();
                     holder.viewQuant.setVisibility(View.GONE);
                     holder.btnAdd.setVisibility(View.VISIBLE);
-                    //deleteCart(String cartId);
+                    deleteCart(cartId);
                 }
                 else{
                     double updatedPrice = price * (quant - 1);
                     updateCart(cartId, quant - 1, updatedPrice);
+                    holder.etQuant.setText(String.valueOf(quant - 1));
                 }
             }
         });
@@ -148,14 +151,33 @@ public class ProductHomeAdapter extends RecyclerView.Adapter<ProductHomeAdapter.
 
     public void insertFirst(String Id, int quant, String userId, double price){
 
-        //db.collection("cart").add()
+        CartModel cm = new CartModel(Id, userId, quant, price);
+        db.collection("Cart").add(cm).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                cartId = documentReference.getId();
+            }
+        });
     }
 
     public void updateCart(String cartId, int quant, double price){
-        //ToDo
+        db.collection("Cart").document(cartId).update("quant", quant,
+                "price", price)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(ctx, "Cart Updated", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     public void deleteCart(String cartId){
-        //Todo
+        db.collection("Cart").document(cartId).delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                });
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="6"
+    tools:context=".Cart">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:id="@+id/rvCart"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Mode"
+            android:id="@+id/selectMode"
+            android:backgroundTint="@color/background"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"
+            >
+
+        </Button>
+
+        <Button
+            android:id="@+id/placeOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/sky_btn"
+            android:letterSpacing="0.2"
+            android:text="Place Order"
+
+            android:layout_margin="20dp"
+            android:textStyle="bold">
+
+        </Button>
+
+    </LinearLayout>
+
+</LinearLayout>

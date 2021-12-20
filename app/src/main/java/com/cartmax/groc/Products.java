@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.cartmax.groc.adapter.ProductHomeAdapter;
@@ -78,5 +80,28 @@ public class Products extends AppCompatActivity {
 
                     }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menustore, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( @NonNull MenuItem item ) {
+
+        switch (item.getItemId()){
+            case R.id.storeDetails:
+                Toast.makeText(this, "Store Clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.orderStore:
+                Toast.makeText(this, "Orders Clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.addItem:
+                Toast.makeText(this, "Add Item Clicked", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

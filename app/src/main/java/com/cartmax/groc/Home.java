@@ -47,8 +47,8 @@ public class Home extends AppCompatActivity {
     long location = 0, locationLowerBound, locationUpperBound;
     String userID;
 
-    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPreferences.edit();
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     RecyclerView recyclerView;
 
@@ -56,6 +56,10 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
         db = FirebaseFirestore.getInstance();
         ref = db.collection("stores");
         gp = new GeoFire(ref);

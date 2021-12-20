@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "958513038312",
-    "project_id": "cartmax-666ad",
-    "storage_bucket": "cartmax-666ad.appspot.com"
+    "project_number": "120166420768",
+    "project_id": "newcartmax",
+    "storage_bucket": "newcartmax.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:958513038312:android:88b1f541dac1014f32da5d",
+        "mobilesdk_app_id": "1:120166420768:android:79ad37d6610b88862f0745",
         "android_client_info": {
           "package_name": "com.cartmax.groc"
         }
       },
       "oauth_client": [
         {
-          "client_id": "958513038312-p24v9p99fe962gvqvqrstpdjhr9si5l9.apps.googleusercontent.com",
+          "client_id": "120166420768-ji4hhkmmvb1igv8p63rhv5fgbuinauib.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB0M9C-dsnHypROG_-ptEZGyrEJxD5LVZo"
+          "current_key": "AIzaSyD-NB90WoBiH_ERgHvIPplAd2LfPP9obC8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "958513038312-p24v9p99fe962gvqvqrstpdjhr9si5l9.apps.googleusercontent.com",
+              "client_id": "120166420768-ji4hhkmmvb1igv8p63rhv5fgbuinauib.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

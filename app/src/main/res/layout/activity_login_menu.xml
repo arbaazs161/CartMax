@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg_start"
+    tools:context=".LoginMenu">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:src="@drawable/name"
+        android:padding="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        >
+    </ImageView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+
+        android:src="@drawable/illustration_home"></ImageView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:text="Login User"
+        android:layout_margin="15dp"
+        android:backgroundTint="@color/sky_btn"
+        android:id="@+id/btnMenuLogin"
+        ></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:text="Register User"
+        android:layout_margin="15dp"
+        android:backgroundTint="@color/sky_btn"
+        android:id="@+id/btnMenuRegister"
+        ></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:text="Register Store"
+        android:layout_margin="15dp"
+        android:backgroundTint="@color/sky_btn"
+        android:id="@+id/btnMenuRegisterStore"
+        ></Button>
+
+</LinearLayout>

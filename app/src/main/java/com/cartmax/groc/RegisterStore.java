@@ -60,8 +60,8 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class RegisterStore extends AppCompatActivity implements OnMapReadyCallback {
 
-    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPreferences.edit();
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     FusedLocationProviderClient mFusedLocationClient;
     int PERMISSION_ID = 44;
@@ -97,6 +97,8 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_store);
+        sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -143,7 +145,7 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
                 Long PinCode = Long.parseLong(etPinCode.getText().toString());
 
                 boolean res = registerStore(Name, typesArray, Address, Contact, PinCode);
-                if(res) Log.d("Succeess Registering", "Hurray");
+                if(res) Log.d("Success Registering", "Hurray");
             }
         });
     }
@@ -289,7 +291,7 @@ public class RegisterStore extends AppCompatActivity implements OnMapReadyCallba
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-
+                    Toast.makeText(RegisterStore.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

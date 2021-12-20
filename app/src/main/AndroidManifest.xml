@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CartMax"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".LoginMenu"
+            android:exported="false" />
+        <activity
             android:name=".Cart"
             android:exported="false" />
         <activity

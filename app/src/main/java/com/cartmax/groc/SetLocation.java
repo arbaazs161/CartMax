@@ -18,8 +18,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SetLocation extends AppCompatActivity {
 
-    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPreferences.edit();
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     String userID;
     long pincode;
@@ -34,6 +34,9 @@ public class SetLocation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_location);
+
+        sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         db = FirebaseFirestore.getInstance();
 

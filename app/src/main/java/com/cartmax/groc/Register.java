@@ -19,6 +19,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.net.IDN;
+
 public class Register extends AppCompatActivity {
 
     String Fname, Lname, Contact, Id;
@@ -27,13 +29,16 @@ public class Register extends AppCompatActivity {
     Button btnReg;
     FirebaseFirestore fb;
 
-    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPreferences.edit();
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
 
         etFname = findViewById(R.id.etRegisterFName);
         etLname = findViewById(R.id.etRegisterLName);
@@ -54,7 +59,17 @@ public class Register extends AppCompatActivity {
 
                     Fname = etFname.getText().toString();
                     Lname = etLname.getText().toString();
-                    registerUser(Fname, Lname, Contact);
+
+                    Id = "r9CPavW881IVESdTBIKg";
+                    //registerUser(Fname, Lname, Contact);
+                    editor.putString("userID", Id);
+                    editor.apply();
+                    editor.commit();
+
+                    Intent i = new Intent(Register.this, Home.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
+
                 }
             }
         });
